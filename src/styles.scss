@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './assets/theme-colors' as my-theme; // use same color as $primary-bg in _variables
+
+@use './assets/variables';
+
+// https://github.com/angular/components/blob/main/src/material/schematics/ng-generate/theme-color/README.md
+// ng generate @angular/material:theme-color - use same colors as _variables to create palette properly
+
+html, body { height: 100%; }
+
+html {
+    @include mat.theme((
+        color: (
+            primary: my-theme.$primary-palette,
+            tertiary: my-theme.$tertiary-palette,
+            theme-type: dark,
+        ),
+        typography: Roboto,
+        density: 0
+    ));
+}
+
+body { margin: 0; font-family: Roboto; }
+
+:root [color="primary"] {
+    @include mat.toolbar-overrides((
+        container-background-color: variables.$primary-bg,
+        container-text-color: variables.$primary-fg
+    ));
+}
