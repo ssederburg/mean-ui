@@ -1,7 +1,29 @@
-<div>
-    <table *ngIf="items && items.length > 0">
-        <tr *ngFor="let item of items">
-            <td>{{item.name}}</td>
-        </tr>
-    </table>
+<div class="page-content">
+    <div>
+        <h3>Postgres Tables</h3>
+        <table *ngIf="tables && tables.length > 0">
+            <thead>
+                <th *ngFor="let th of fields">{{th.name}}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let table of tables">
+                    <td *ngFor="let td of fields">{{table[td.name]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div>
+        <h3>Mongo Collections</h3>
+        <table *ngIf="collections && collections.length > 0">
+            <thead>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let collection of collections">
+                    <td>{{collection.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

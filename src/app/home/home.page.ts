@@ -12,27 +12,48 @@ import { CommonModule } from "@angular/common";
 })
 export class HomePage implements OnInit {
 
-    items: any[] = []
+    tables: any[] = []
+    fields: any[] = []
+    collections: any[] = []
 
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
-        this.http.get('/api/test', {
+        this.fetchPostgres()
+        this.fetchMongo()
+    }
+
+    fetchPostgres() {
+        this.tables = []
+        this.fields = []
+        this.http.get('/api/postgres/tables', {
             headers: {
                 'Content-Type': 'application/json'
             }
         }).subscribe({
             next: (s: any) => {
                 console.dir(s)
-                this.items = s.items.sort((a: any, b: any) => {
-                    if (a.name>b.name) {
-                        return 1
-                    } else if (a.name<b.name) {
-                        return -1 
-                    } else {
-                        return 0
-                    }
-                })
+                if (s && s.rows && s.fields) {
+                    this.fields = [...s.fields]
+                    this.tables = [...s.rows]
+                }
+            },
+            error: (err) => {
+                console.error(err)
+            }
+        })
+    }
+
+    fetchMongo() {
+        this.collections = []
+        this.http.get('/api/mongodb/collections', {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).subscribe({
+            next: (s: any) => {
+                console.dir(s)
+                this.collections = [...s]
             },
             error: (err) => {
                 console.error(err)
