@@ -1,0 +1,28 @@
+<mat-card appearance="outlined" style="max-width: 600px;">
+    <mat-card-content>
+        <mat-card-title-group>
+            <mat-card-title>{{title}}</mat-card-title>
+            <mat-card-subtitle>{{subTitle}}</mat-card-subtitle>
+            <img mat-card-md-image [src]="imagePath" />
+        </mat-card-title-group>
+        <mat-card-content>
+            <div>Assigned on Jan 20 by theodore</div>
+            <div>Messages: 12</div>
+            <div>Photos: 3</div>
+            <div>The quick brown fox jumped over the lazy dog on the way to the mall while looking for cats.</div>
+        </mat-card-content>
+        <mat-card-actions align="end" style="margin-bottom: 20px;">
+            <button mat-flat-button>View Task Detail</button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-chip-set>
+                <mat-chip disabled="true">Cable</mat-chip>
+                <mat-chip disabled="true">Trimout</mat-chip>
+                <mat-chip>Install</mat-chip>
+                <mat-chip>Inspect</mat-chip>
+                <mat-chip>Complete</mat-chip>
+                <mat-chip><img matChipAvatar src="fakefloor.jpeg" />BLOCKED</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card-content>
+</mat-card>

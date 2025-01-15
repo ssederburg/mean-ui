@@ -24,7 +24,7 @@ body { margin: 0; font-family: Roboto; }
 
 .page-content {
     padding-left: 10px;
-    table {
+    table.striped {
         border-spacing: none;
         border-collapse: collapse;
         border: none;
@@ -41,11 +41,34 @@ body { margin: 0; font-family: Roboto; }
             padding: 6px 2px;
         }
     }
+    .cage {
+        display: flex;
+        gap: 16px;
+        margin: 20px;
+        margin-top: 0;
+        flex-wrap: wrap;
+        tile-button {
+            min-width: 350px;
+        }
+    }
+}
+.spacer {
+    flex: 1 1 auto;
 }
 
-:root [color="primary"] {
+:root [color="secondary"] {
     @include mat.toolbar-overrides((
-        container-background-color: variables.$primary-bg,
-        container-text-color: variables.$primary-fg
+        container-background-color: variables.$secondary-bg,
+        container-text-color: variables.$secondary-fg
     ));
+}
+@media (max-width: 500px) {
+    .page-content {
+        padding-left: 0;
+        .cage {
+            margin: 0;
+            margin-top: 10px;
+            padding: 5px;
+        }
+    }
 }

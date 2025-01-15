@@ -2,11 +2,16 @@ import { Component, OnInit } from "@angular/core";
 
 import { HttpClient } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
+import { TileButton } from "../components/tilebutton/tilebutton";
+
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
 
 @Component({
     standalone: true,
     selector: 'home-page',
-    imports: [CommonModule],
+    imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule, TileButton],
     providers: [HttpClient],
     templateUrl: './home.page.html'
 })
