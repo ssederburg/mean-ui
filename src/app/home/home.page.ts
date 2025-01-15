@@ -19,8 +19,8 @@ export class HomePage implements OnInit {
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
-        this.fetchPostgres()
-        this.fetchMongo()
+        //this.fetchPostgres()
+        //this.fetchMongo()
     }
 
     fetchPostgres() {
